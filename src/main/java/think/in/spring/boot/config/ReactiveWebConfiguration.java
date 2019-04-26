@@ -1,8 +1,5 @@
 package think.in.spring.boot.config;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,7 +27,7 @@ public class ReactiveWebConfiguration {
     // 3.采用EnableAutoConfiguration标注该类，
     // 在启动类中将ReactiveWebConfiguration.class作为启动加载配置类实现
     @Bean
-    public RouterFunction<ServerResponse> helloWorld(){
+    public RouterFunction<ServerResponse> reactiveHelloWorld(){
         return route(GET("/hello-world"),
                 request -> ok().body(Mono.just("Hello, World"),String.class)
                 );
