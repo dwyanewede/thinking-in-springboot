@@ -3,7 +3,8 @@ package think.in.spring.boot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "think.in.spring.boot.config")
+//@SpringBootApplication(scanBasePackages = "think.in.spring.boot.config")
+@SpringBootApplication
 public class ThinkSpringBootApplication {
 
 	public static void main(String[] args) {

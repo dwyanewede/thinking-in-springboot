@@ -1,5 +1,6 @@
 package think.in.spring.boot.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,8 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloSxsController {
 
+
+    @Value("${my.girl}")
+    private String myGirl;
+
     @GetMapping("/hello-sxs")
     public String hello(){
-        return "hello sxs !";
+        return "do you like " + myGirl;
     }
 }
