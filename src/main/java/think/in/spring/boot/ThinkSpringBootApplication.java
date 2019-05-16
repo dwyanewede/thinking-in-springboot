@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ThinkSpringBootApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("spring-think-spring-boot-author-name","shangxiansheng");
 		SpringApplication.run(ThinkSpringBootApplication.class, args);
 	}
 
