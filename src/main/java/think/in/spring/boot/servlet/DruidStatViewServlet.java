@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
  * @CreateDate: 2019/5/22 17:58
  * @Version: 1.0
  */
+// druid web 管控台
+// http://127.0.0.1:8080/monitor/druid/sql.html
 @WebServlet(urlPatterns = "/monitor/druid/*", asyncSupported = true,
         initParams = {
                 @WebInitParam(name = "allow", value = "127.0.0.1"),
