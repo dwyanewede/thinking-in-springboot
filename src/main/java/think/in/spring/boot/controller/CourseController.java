@@ -32,11 +32,9 @@ public class CourseController {
         for (Course course : courses1){
             course.setCurrentThreadName(Thread.currentThread().getName());
         }
-
-
-        Collection<Course> courses2 = courseMapper.findAllCourses();
-
-        courses1.addAll(courses2);
+        // 实现组合查询
+//        Collection<Course> courses2 = courseMapper.findAllCourses();
+//        courses1.addAll(courses2);
         return courses1;
     }
 
