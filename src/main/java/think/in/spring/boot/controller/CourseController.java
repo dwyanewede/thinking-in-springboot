@@ -23,7 +23,7 @@ public class CourseController {
     private CourseMapper courseMapper;
 
 
-    @GetMapping("/find-all-courses")
+    @GetMapping(value = "/find-all-courses",produces = {"application/json;charset=UTF-8"})
     @Transactional
     public Collection<Course> findAllCourses(){
 
