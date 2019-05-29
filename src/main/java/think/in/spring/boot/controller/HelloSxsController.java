@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @ClassName: HelloSxsController
  * @Description: web servlet实现
@@ -14,12 +17,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloSxsController {
 
-
     @Value("${my.girl}")
     private String myGirl;
 
     @GetMapping("/hello-sxs")
-    public String hello(){
-        return "do you like " + myGirl;
+    public Callable<String> hello(){
+
+        System.out.println("接收请求，开始处理...  " + Thread.currentThread().getName());
+
+        Callable<String> result = (()->{
+            TimeUnit.SECONDS.sleep(5);
+            System.out.println("do you like " + myGirl + " ： " + Thread.currentThread().getName());
+            return "do you like " + myGirl;
+        });
+
+        System.out.println("接收任务线程完成并退出...  " + Thread.currentThread().getName());
+
+        return result;
     }
 }
