@@ -21,7 +21,7 @@ public class HelloSxsController {
     private String myGirl;
 
     @GetMapping("/hello-sxs")
-    public Callable<String> hello(){
+    public Callable<String> hello() throws InterruptedException {
 
         System.out.println("接收请求，开始处理...  " + Thread.currentThread().getName());
 
@@ -30,7 +30,10 @@ public class HelloSxsController {
             System.out.println("do you like " + myGirl + " ： " + Thread.currentThread().getName());
             return "do you like " + myGirl;
         });
-
+        // TODO 知识点
+        // 不能在异步代码块中使用 wait()
+        // 会导致 java.lang.IllegalMonitorStateException
+        // wait();
         System.out.println("接收任务线程完成并退出...  " + Thread.currentThread().getName());
 
         return result;
